@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/RelativeLayout01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/black">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1.0.1 all right reserved"
+        android:textColor="@color/white"
+        android:textSize="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="MasterMind"
+        android:textSize="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:textAlignment="center"
+        android:layout_above="@+id/unJoeur"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:editable="false"
+        />
+
+
+    <Button
+        android:id="@+id/unJoeur"
+        android:layout_width="0dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:textSize="38dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="40dp"
+        android:background="@color/marron"
+        android:text="Un Joeur"/>
+
+    <Button
+        android:id="@+id/deuxJoeur"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/unJoeur"
+        android:layout_marginHorizontal="40dp"
+        android:background="@color/marron"
+        android:textSize="38dp"
+        android:text="Deux Joeur"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="pièce vide"
+        android:layout_alignParentBottom="true"
+        android:textSize="30dp"
+        android:layout_toLeftOf="@+id/vide"
+        android:editable="false"
+        android:textColor="@color/white"
+        />
+
+    <CheckBox
+        android:id="@+id/vide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        />
+
+
+</RelativeLayout>
