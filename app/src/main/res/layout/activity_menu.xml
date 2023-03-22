@@ -21,7 +21,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:textAlignment="center"
-        android:layout_above="@+id/unJoeur"
+        android:layout_above="@+id/unJoueur"
         android:layout_alignParentTop="true"
         android:gravity="center"
         android:editable="false"
@@ -29,30 +29,30 @@
 
 
     <Button
-        android:id="@+id/unJoeur"
+        android:id="@+id/unJoueur"
         android:layout_width="0dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentLeft="true"
-        android:textSize="38dp"
+        android:textSize="30dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_marginHorizontal="40dp"
         android:background="@color/marron"
-        android:text="Un Joeur"/>
+        android:text="Un Joueur"/>
 
     <Button
-        android:id="@+id/deuxJoeur"
+        android:id="@+id/deuxJoueur"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentLeft="true"
         android:layout_centerInParent="true"
         android:layout_marginTop="50dp"
-        android:layout_below="@+id/unJoeur"
+        android:layout_below="@+id/unJoueur"
         android:layout_marginHorizontal="40dp"
         android:background="@color/marron"
-        android:textSize="38dp"
-        android:text="Deux Joeur"/>
+        android:textSize="30dp"
+        android:text="Deux Joueur"/>
 
     <TextView
         android:layout_width="wrap_content"
