@@ -10,22 +10,21 @@
         android:layout_height="wrap_content"
         android:text="1.0.1 all right reserved"
         android:textColor="@color/white"
-        android:textSize="10dp"/>
+        android:textSize="15dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:text="MasterMind"
-        android:textSize="60dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:textAlignment="center"
         android:layout_above="@+id/unJoueur"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:gravity="center"
+        android:layout_alignParentRight="true"
         android:editable="false"
-        />
+        android:gravity="center"
+        android:text="MasterMind"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="60dp" />
 
 
     <Button
@@ -69,9 +68,8 @@
         android:id="@+id/vide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        />
+        android:layout_alignParentBottom="true" />
 
 
 </RelativeLayout>

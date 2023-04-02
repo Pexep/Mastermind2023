@@ -15,9 +15,9 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        this.findViewById(R.id.unJoeur)
+        this.findViewById(R.id.unJoueur)
                 .setOnClickListener(new ObservateurMenuDebutPartie(this, UtilTypePartie.UN_JOEUR, (CheckBox) this.findViewById(R.id.vide)));
-        this.findViewById(R.id.deuxJoeur)
+        this.findViewById(R.id.deuxJoueur)
                 .setOnClickListener(new ObservateurMenuDebutPartie(this, UtilTypePartie.DEUX_JOEUR, (CheckBox) this.findViewById(R.id.vide)));
     }
 }

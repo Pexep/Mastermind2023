@@ -12,6 +12,9 @@
         android:theme="@style/Theme.MasterMind"
         tools:targetApi="31">
         <activity
+            android:name=".ChoixDuMotDePasse"
+            android:exported="false" />
+        <activity
             android:name=".SettingActivity"
             android:exported="false" />
         <activity

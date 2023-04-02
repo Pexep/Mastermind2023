@@ -6,7 +6,11 @@ import android.view.View;
 import android.widget.CheckBox;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.mastermind.ChoixDuMotDePasse;
 import com.example.mastermind.MasterMindActivity;
+
+import java.util.Random;
 
 public class ObservateurMenuDebutPartie implements View.OnClickListener {
 
@@ -25,9 +29,24 @@ public class ObservateurMenuDebutPartie implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        Intent mastermind = new Intent(menu, MasterMindActivity.class);
-        mastermind.putExtra("nbJoeur", typePartie);
-        mastermind.putExtra("vide", vide.isActivated());
-        menu.startActivity(mastermind);
+        if(typePartie == 1){
+            Intent mastermind = new Intent(menu, MasterMindActivity.class);
+            mastermind.putExtra("vide", vide.isChecked());
+
+            Random r=new Random();
+            int tab[]=new int[4];
+            tab[0]=r.nextInt(6);
+            tab[1]=r.nextInt(6);
+            tab[2]=r.nextInt(6);
+            tab[3]=r.nextInt(6);
+            mastermind.putIntegerArrayListExtra("code", )
+
+            menu.startActivity(mastermind);
+        }
+        if(typePartie ==2){
+            Intent choixCode = new Intent(menu, ChoixDuMotDePasse.class);
+            choixCode.putExtra("vide", vide.isChecked());
+            menu.startActivity(choixCode);
+        }
     }
 }
