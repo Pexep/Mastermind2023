@@ -1,9 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/marron"
+    android:gravity="center"
+    android:orientation="vertical"
+
+    >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center">
 
 
-</RelativeLayout>
+        <com.example.mastermind.vue.mastermind.UnePiece
+            android:id="@+id/code1"
+            android:layout_width="@dimen/piece"
+            android:layout_height="@dimen/piece"
+            android:layout_margin="@dimen/marge"/>
+
+        <com.example.mastermind.vue.mastermind.UnePiece
+            android:id="@+id/code2"
+            android:layout_width="@dimen/piece"
+            android:layout_height="@dimen/piece"
+            android:layout_margin="@dimen/marge"
+            android:layout_toRightOf="@id/code1"/>
+
+        <com.example.mastermind.vue.mastermind.UnePiece
+            android:id="@+id/code3"
+            android:layout_width="@dimen/piece"
+            android:layout_height="@dimen/piece"
+            android:layout_margin="@dimen/marge"
+            android:layout_toRightOf="@id/code2"/>
+
+        <com.example.mastermind.vue.mastermind.UnePiece
+            android:id="@+id/code4"
+            android:layout_width="@dimen/piece"
+            android:layout_height="@dimen/piece"
+            android:layout_margin="@dimen/marge"
+            android:layout_toRightOf="@id/code3"/>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/bouton_valider_code"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/marge"
+            android:text="Valider"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:textSize="@dimen/marge"
+            android:background="@color/black"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

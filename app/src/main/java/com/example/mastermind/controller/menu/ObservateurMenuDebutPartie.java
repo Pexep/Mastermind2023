@@ -39,7 +39,7 @@ public class ObservateurMenuDebutPartie implements View.OnClickListener {
             tab[1]=r.nextInt(6);
             tab[2]=r.nextInt(6);
             tab[3]=r.nextInt(6);
-            mastermind.putIntegerArrayListExtra("code", )
+            mastermind.putExtra("code", tab);
 
             menu.startActivity(mastermind);
         }

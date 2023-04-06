@@ -13,7 +13,17 @@ public class MasterMindActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_master_mind);
         Intent data=this.getIntent();
-        System.out.println(data.getIntExtra("nbJoeur", 1));
-        System.out.println(data.getIntArrayExtra("code"));
+        System.out.println(data.getBooleanExtra("vide", false));
+        int tab[]=data.getIntArrayExtra("code");
+        for(int i : tab){
+            System.out.println(i);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent menu=new Intent(this, MenuActivity.class);
+        this.startActivity(menu);
+        this.finish();
     }
 }

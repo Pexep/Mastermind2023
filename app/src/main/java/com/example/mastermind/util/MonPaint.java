@@ -37,6 +37,13 @@ public abstract class MonPaint {
         return MonPaint.verte;
     }
 
+    public static Paint getRouge() {
+        if(MonPaint.rouge== null){
+            MonPaint.istanciate();
+        }
+        return MonPaint.rouge;
+    }
+
     public static Paint getJaune(){
         if(MonPaint.jaune== null){
             MonPaint.istanciate();
@@ -63,5 +70,28 @@ public abstract class MonPaint {
             MonPaint.istanciate();
         }
         return MonPaint.noir;
+    }
+
+    public static Paint getColor(int n){
+        switch (n){
+            case 0:
+                return MonPaint.getRouge();
+            case 1:
+                return MonPaint.getBleue();
+
+            case 2:
+                return MonPaint.getVerte();
+
+            case 3:
+                return MonPaint.getJaune();
+            case 4:
+                return MonPaint.getNoir();
+
+            case 5:
+                return MonPaint.getBlanche();
+
+            default:
+                return null;
+        }
     }
 }
