@@ -28,8 +28,7 @@ public class MonGestureListener implements GestureDetector.OnGestureListener {
 
     @Override
     public boolean onSingleTapUp(@NonNull MotionEvent motionEvent) {
-        this.vue.setColor(5);
-        return true;
+        return false;
     }
 
     @Override
@@ -39,45 +38,26 @@ public class MonGestureListener implements GestureDetector.OnGestureListener {
 
     @Override
     public void onLongPress(@NonNull MotionEvent motionEvent) {
-        this.vue.setColor(4);
+        this.vue.setColor(6);
     }
 
     @Override
     public boolean onFling(@NonNull MotionEvent motionEvent, @NonNull MotionEvent motionEvent1, float v, float v1) {
-        if(v>0 && v1>0){
-            if(v>v1){
-                //slide a droit plus fort
+        if (Math.abs(v) > Math.abs(v1)) {
+            if (v > 0) {
+                // slide à droite
                 this.vue.setColor(2);
-            }else{
-                //slide en bas plus fort
-                this.vue.setColor(1);
-            }
-        }
-        if(v>0 && v1<0){
-            if(v+v1 >0){
-                //slide a droit plus fort
-                this.vue.setColor(2);
-            }else{
-                //slide en haut plus fort
-                this.vue.setColor(1);
-            }
-        }
-        if(v<0 && v1>0){
-            if((v+v1) < 0){
-                //slide a gauche plus fort
+            } else {
+                // slide à gauche
                 this.vue.setColor(0);
-            }else{
-                //slide en bas plus fort
+            }
+        } else {
+            if (v1 > 0) {
+                // slide en bas
+                this.vue.setColor(1);
+            } else {
+                // slide en haut
                 this.vue.setColor(3);
-            }
-        }
-        if(v<0 && v1<0){
-            if(v < v1){
-                //slide gauche plus fort
-                this.vue.setColor(0);
-            }else{
-                //slide en haut plus fort
-                this.vue.setColor(1);
             }
         }
         return true;

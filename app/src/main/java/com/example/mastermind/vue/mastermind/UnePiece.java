@@ -24,10 +24,14 @@ public class UnePiece extends View {
         super.onDraw(canvas);
         int centerX = getWidth() / 2;
         int centerY = getHeight() / 2;
-        int radius = 50;
+        int radius = this.getRaduis();
 
 
         canvas.drawCircle(centerX, centerY, radius, MonPaint.getColor(this.color));
+    }
+
+    protected int getRaduis() {
+        return 40;
     }
 
     public int getColor() {
@@ -35,7 +39,7 @@ public class UnePiece extends View {
     }
 
     public void setColor(int colorr) {
-        this.color = colorr%6;
+        this.color = colorr%7;
         this.invalidate();
     }
 }

@@ -26,10 +26,11 @@ public class ChoixDuMotDePasse extends AppCompatActivity {
         this.trois=(UnePiece) this.findViewById(R.id.code3);
         this.quatre=(UnePiece) this.findViewById(R.id.code4);
 
-        this.un.setOnTouchListener(new MonOnTouchListener(this.un));
-        this.deux.setOnTouchListener(new MonOnTouchListener(this.deux));
-        this.trois.setOnTouchListener(new MonOnTouchListener(this.trois));
-        this.quatre.setOnTouchListener(new MonOnTouchListener(this.quatre));
+        boolean t=this.getIntent().getBooleanExtra("vide", false);
+        this.un.setOnTouchListener(new MonOnTouchListener(this.un, t));
+        this.deux.setOnTouchListener(new MonOnTouchListener(this.deux, t));
+        this.trois.setOnTouchListener(new MonOnTouchListener(this.trois, t));
+        this.quatre.setOnTouchListener(new MonOnTouchListener(this.quatre, t));
 
         this.findViewById(R.id.bouton_valider_code).setOnTouchListener(new OnTouchBoutonValider(this));
 

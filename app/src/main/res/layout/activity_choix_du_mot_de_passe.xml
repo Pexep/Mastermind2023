@@ -18,29 +18,29 @@
 
         <com.example.mastermind.vue.mastermind.UnePiece
             android:id="@+id/code1"
-            android:layout_width="@dimen/piece"
-            android:layout_height="@dimen/piece"
-            android:layout_margin="@dimen/marge"/>
+            android:layout_width="@dimen/pieceM"
+            android:layout_height="@dimen/pieceM"
+            android:layout_margin="@dimen/margeM"/>
 
         <com.example.mastermind.vue.mastermind.UnePiece
             android:id="@+id/code2"
-            android:layout_width="@dimen/piece"
-            android:layout_height="@dimen/piece"
-            android:layout_margin="@dimen/marge"
+            android:layout_width="@dimen/pieceM"
+            android:layout_height="@dimen/pieceM"
+            android:layout_margin="@dimen/margeM"
             android:layout_toRightOf="@id/code1"/>
 
         <com.example.mastermind.vue.mastermind.UnePiece
             android:id="@+id/code3"
-            android:layout_width="@dimen/piece"
-            android:layout_height="@dimen/piece"
-            android:layout_margin="@dimen/marge"
+            android:layout_width="@dimen/pieceM"
+            android:layout_height="@dimen/pieceM"
+            android:layout_margin="@dimen/margeM"
             android:layout_toRightOf="@id/code2"/>
 
         <com.example.mastermind.vue.mastermind.UnePiece
             android:id="@+id/code4"
-            android:layout_width="@dimen/piece"
-            android:layout_height="@dimen/piece"
-            android:layout_margin="@dimen/marge"
+            android:layout_width="@dimen/pieceM"
+            android:layout_height="@dimen/pieceM"
+            android:layout_margin="@dimen/margeM"
             android:layout_toRightOf="@id/code3"/>
 
 
@@ -54,11 +54,11 @@
             android:id="@+id/bouton_valider_code"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/marge"
+            android:layout_margin="@dimen/margeM"
             android:text="Valider"
             android:textColor="@color/white"
             android:textAlignment="center"
-            android:textSize="@dimen/marge"
+            android:textSize="@dimen/margeM"
             android:background="@color/black"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"/>

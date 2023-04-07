@@ -10,6 +10,8 @@ public abstract class MonPaint {
     private static Paint blanche;
     private static Paint noir;
 
+    private static Paint vide;
+
     private static void istanciate(){
         MonPaint.rouge=new Paint();
         MonPaint.rouge.setColor(0xffff0000);
@@ -28,6 +30,11 @@ public abstract class MonPaint {
 
         MonPaint.noir=new Paint();
         MonPaint.noir.setColor(0xff000000);
+
+        MonPaint.vide=new Paint();
+        MonPaint.vide.setColor(0xFF000000);
+        MonPaint.vide.setStyle(Paint.Style.STROKE);
+        MonPaint.vide.setStrokeWidth(5.0f);
     }
 
     public static Paint getVerte(){
@@ -72,6 +79,13 @@ public abstract class MonPaint {
         return MonPaint.noir;
     }
 
+    public static Paint getVide(){
+        if(MonPaint.vide== null){
+            MonPaint.istanciate();
+        }
+        return MonPaint.vide;
+    }
+
     public static Paint getColor(int n){
         switch (n){
             case 0:
@@ -89,7 +103,8 @@ public abstract class MonPaint {
 
             case 5:
                 return MonPaint.getBlanche();
-
+            case 6:
+                return MonPaint.getVide();
             default:
                 return null;
         }
