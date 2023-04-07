@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="pieceM">40dp</dimen>
+    <dimen name="pieceM">30dp</dimen>
     <dimen name="margeM">10dp</dimen>
-    <dimen name="correction">20dp</dimen>
+    <dimen name="correction">15dp</dimen>
     <dimen name="marge_correction">5dp</dimen>
     <dimen name="titre">30dp</dimen>
 </resources>

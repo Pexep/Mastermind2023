@@ -7,6 +7,19 @@
     android:background="@color/marron"
     android:gravity="center_vertical"
     >
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/correction"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/titre"
+        android:layout_marginRight="@dimen/titre"
+        android:id="@+id/tour"
+        android:text="Valider"
+        />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,7 +36,7 @@
         android:layout_height="wrap_content"
         android:gravity="left"
         android:orientation="vertical"
-        android:layout_alignParentBottom="true">
+        android:layout_above="@+id/tour">
 
 
         <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center">
@@ -105,12 +118,12 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
         android:gravity="right"
         android:orientation="vertical"
         android:id="@+id/correction"
         android:layout_toRightOf="@+id/jeu"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true">
+        android:layout_above="@+id/tour">
 
 
         <LinearLayout android:layout_width="wrap_content" android:layout_height="@dimen/pieceM" android:gravity="center" android:layout_margin="@dimen/margeM">
@@ -175,6 +188,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
 
 </RelativeLayout>

@@ -35,10 +35,14 @@ public class ObservateurMenuDebutPartie implements View.OnClickListener {
 
             Random r=new Random();
             int tab[]=new int[4];
-            tab[0]=r.nextInt(6);
-            tab[1]=r.nextInt(6);
-            tab[2]=r.nextInt(6);
-            tab[3]=r.nextInt(6);
+            int max=5;
+            if(vide.isChecked()){
+                max++;
+            }
+            tab[0]=r.nextInt(max);
+            tab[1]=r.nextInt(max);
+            tab[2]=r.nextInt(max);
+            tab[3]=r.nextInt(max);
             mastermind.putExtra("code", tab);
 
             menu.startActivity(mastermind);

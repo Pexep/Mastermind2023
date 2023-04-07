@@ -13,6 +13,6 @@ public class PieceCorrection extends UnePiece{
 
     @Override
     protected int getRaduis() {
-        return 20;
+        return 15;
     }
 }

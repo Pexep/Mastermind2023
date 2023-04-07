@@ -92,15 +92,12 @@ public abstract class MonPaint {
                 return MonPaint.getRouge();
             case 1:
                 return MonPaint.getBleue();
-
             case 2:
                 return MonPaint.getVerte();
-
             case 3:
                 return MonPaint.getJaune();
             case 4:
                 return MonPaint.getNoir();
-
             case 5:
                 return MonPaint.getBlanche();
             case 6:

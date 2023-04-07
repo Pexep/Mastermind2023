@@ -16,7 +16,7 @@ public class UnePiece extends View {
 
     public UnePiece(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        this.color=4;
+        this.color=0;
     }
 
     @Override
@@ -31,7 +31,7 @@ public class UnePiece extends View {
     }
 
     protected int getRaduis() {
-        return 40;
+        return 30;
     }
 
     public int getColor() {
