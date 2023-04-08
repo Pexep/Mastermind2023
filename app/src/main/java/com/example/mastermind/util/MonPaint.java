@@ -32,7 +32,7 @@ public abstract class MonPaint {
         MonPaint.noir.setColor(0xff000000);
 
         MonPaint.vide=new Paint();
-        MonPaint.vide.setColor(0xFF000000);
+        MonPaint.vide.setColor(0xFFCCCCCC);
         MonPaint.vide.setStyle(Paint.Style.STROKE);
         MonPaint.vide.setStrokeWidth(5.0f);
     }

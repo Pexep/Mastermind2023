@@ -16,7 +16,7 @@ public class UnePiece extends View {
 
     public UnePiece(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        this.color=0;
+        this.color=6;
     }
 
     @Override
