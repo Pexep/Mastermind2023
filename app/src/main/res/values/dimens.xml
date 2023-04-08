@@ -5,4 +5,6 @@
     <dimen name="correction">15dp</dimen>
     <dimen name="marge_correction">5dp</dimen>
     <dimen name="titre">30dp</dimen>
+    <dimen name="texte">20dp</dimen>
+    <dimen name="texte_petit">15dp</dimen>
 </resources>

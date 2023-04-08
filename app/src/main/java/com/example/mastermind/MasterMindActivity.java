@@ -2,6 +2,7 @@ package com.example.mastermind;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -54,37 +55,42 @@ public class MasterMindActivity extends AppCompatActivity {
     public void nextTurn(){
         if(this.tour<9){
             //on affiche la correction
-            this.afficherCorrection((LinearLayout) this.jeu.getChildAt(this.tour));
+            boolean gagne = this.afficherCorrection((LinearLayout) this.jeu.getChildAt(this.tour));
             //on supprime les listener
             if(this.tour>0){
                 LinearLayout anciennesPieces =(LinearLayout) this.jeu.getChildAt(this.tour-1);
 
                 for(int i=0; i<anciennesPieces.getChildCount(); i++){anciennesPieces.getChildAt(i).setOnTouchListener(null);}
             }
-            //on incremente le tour
-            this.tour++;
-            //on récupere le LinearLayout des pieces du tour
-            LinearLayout pieces =(LinearLayout) this.jeu.getChildAt(this.tour);
-            //on ajoute le listener
-            for(int i=0; i<pieces.getChildCount(); i++){
-                UnePiece p=(UnePiece) pieces.getChildAt(i);
-                p.setOnTouchListener(new MonOnTouchListener(p, this.vide));
+            
+            if (gagne){
+                this.finDePartie(true);
+            } else {
+                //on incremente le tour
+                this.tour++;
+                //on récupere le LinearLayout des pieces du tour
+                LinearLayout pieces =(LinearLayout) this.jeu.getChildAt(this.tour);
+                //on ajoute le listener
+                for(int i=0; i<pieces.getChildCount(); i++) {
+                    UnePiece p = (UnePiece) pieces.getChildAt(i);
+                    p.setOnTouchListener(new MonOnTouchListener(p, this.vide));
+                }
             }
 
         }else{
             //on affiche la correction
-            this.afficherCorrection((LinearLayout) this.jeu.getChildAt(this.tour));
+            boolean gagne = this.afficherCorrection((LinearLayout) this.jeu.getChildAt(this.tour));
             //on supprime les listener
             if(this.tour>0){
                 LinearLayout anciennesPieces =(LinearLayout) this.jeu.getChildAt(this.tour-1);
 
                 for(int i=0; i<anciennesPieces.getChildCount(); i++){anciennesPieces.getChildAt(i).setOnTouchListener(null);}
             }
-            this.finDePartie();
+            this.finDePartie(gagne);
         }
     }
 
-    public void afficherCorrection(LinearLayout pieces){
+    public boolean afficherCorrection(LinearLayout pieces){
         int[] colorpiece=new int[4];
         for(int i=0; i<4; i++){
             colorpiece[i]=((UnePiece)pieces.getChildAt(i)).getColor();
@@ -111,12 +117,16 @@ public class MasterMindActivity extends AppCompatActivity {
                 }
             }
         }
-        if(gagner){
-            this.finDePartie();
-        }
+        return gagner;
     }
 
-    public void finDePartie(){
-
+    public void finDePartie(boolean trouve){
+        Log.d("finDePartie", "                                 finDePartie: "+trouve);
+        Intent fin=new Intent(this, FinDePartieActivity.class);
+        fin.putExtra("trouve", trouve);
+        fin.putExtra("tour", this.tour);
+        fin.putExtra("code", this.code);
+        this.startActivity(fin);
+        this.finish();
     }
 }
