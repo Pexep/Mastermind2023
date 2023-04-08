@@ -15,28 +15,34 @@ import java.util.Random;
 public class ChoixDuMotDePasse extends AppCompatActivity {
 
     private UnePiece un, deux, trois, quatre;
+    
+    private boolean vide;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choix_du_mot_de_passe);
+        
+        this.vide = this.getIntent().getBooleanExtra("vide", false);
 
         this.un=(UnePiece) this.findViewById(R.id.code1);
         this.deux=(UnePiece) this.findViewById(R.id.code2);
         this.trois=(UnePiece) this.findViewById(R.id.code3);
         this.quatre=(UnePiece) this.findViewById(R.id.code4);
-
-        boolean t=this.getIntent().getBooleanExtra("vide", false);
-        this.un.setOnTouchListener(new MonOnTouchListener(this.un, t));
-        this.deux.setOnTouchListener(new MonOnTouchListener(this.deux, t));
-        this.trois.setOnTouchListener(new MonOnTouchListener(this.trois, t));
-        this.quatre.setOnTouchListener(new MonOnTouchListener(this.quatre, t));
+        
+        this.un.setOnTouchListener(new MonOnTouchListener(this.un, this.vide));
+        this.deux.setOnTouchListener(new MonOnTouchListener(this.deux, this.vide));
+        this.trois.setOnTouchListener(new MonOnTouchListener(this.trois, this.vide));
+        this.quatre.setOnTouchListener(new MonOnTouchListener(this.quatre, this.vide));
 
         this.findViewById(R.id.bouton_valider_code).setOnTouchListener(new OnTouchBoutonValider(this));
 
     }
 
     public void start(){
+        if(!this.vide && (this.un.getColor()==6 || this.deux.getColor()==6 || this.trois.getColor()==6 || this.quatre.getColor()==6)){
+            return;
+        }
         Intent mastermind=new Intent(this, MasterMindActivity.class);
         Intent data=this.getIntent();
         mastermind.putExtra("vide", data.getBooleanExtra("vide", false));

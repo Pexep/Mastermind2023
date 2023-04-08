@@ -14,9 +14,7 @@ public class MonOnTouchListener implements View.OnTouchListener {
     public MonOnTouchListener(UnePiece p, boolean t){
         this.detector=new GestureDetector(new MonGestureListener(p));
         this.detector.setOnDoubleTapListener(new MonOnDoubleTapListener(p));
-        if(t==false){
-            this.detector.setIsLongpressEnabled(t);
-        }
+        this.detector.setIsLongpressEnabled(t);
     }
 
     @Override
