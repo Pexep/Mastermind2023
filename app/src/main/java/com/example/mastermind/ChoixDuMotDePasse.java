@@ -1,9 +1,11 @@
 package com.example.mastermind;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.example.mastermind.controller.ChoixDuMotDePasse.OnTouchBoutonValider;
@@ -56,5 +58,28 @@ public class ChoixDuMotDePasse extends AppCompatActivity {
 
         this.startActivity(mastermind);
         this.finish();
+    }
+    
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (outState == null){
+            outState = new Bundle();
+        }
+        outState.putIntArray("code", new int[]{this.un.getColor(), this.deux.getColor(), this.trois.getColor(), this.quatre.getColor()});
+    }
+    
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if (savedInstanceState != null){
+            if (savedInstanceState.containsKey("code")){
+                int[] code = savedInstanceState.getIntArray("code");
+                this.un.setColor(code[0]);
+                this.deux.setColor(code[1]);
+                this.trois.setColor(code[2]);
+                this.quatre.setColor(code[3]);
+            }
+        }
     }
 }
