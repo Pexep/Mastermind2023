@@ -35,7 +35,7 @@ public class ObservateurMenuDebutPartie implements View.OnClickListener {
 
             Random r=new Random();
             int tab[]=new int[4];
-            int max=5;
+            int max=6;
             if(vide.isChecked()){
                 max++;
             }
