@@ -57,11 +57,9 @@ public class MasterMindActivity extends AppCompatActivity {
             //on affiche la correction
             boolean gagne = this.afficherCorrection((LinearLayout) this.jeu.getChildAt(this.tour));
             //on supprime les listener
-            if(this.tour>0){
-                LinearLayout anciennesPieces =(LinearLayout) this.jeu.getChildAt(this.tour-1);
+            LinearLayout anciennesPieces =(LinearLayout) this.jeu.getChildAt(this.tour);
 
-                for(int i=0; i<anciennesPieces.getChildCount(); i++){anciennesPieces.getChildAt(i).setOnTouchListener(null);}
-            }
+            for(int i=0; i<anciennesPieces.getChildCount(); i++){anciennesPieces.getChildAt(i).setOnTouchListener(null);}
             
             if (gagne){
                 this.finDePartie(true);
