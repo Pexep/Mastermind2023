@@ -54,14 +54,17 @@
             android:id="@+id/bouton_valider_code"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margeM"
-            android:text="Valider"
-            android:textColor="@color/white"
-            android:textAlignment="center"
-            android:textSize="@dimen/margeM"
-            android:background="@color/black"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="@dimen/margeM"
+            android:layout_marginTop="@dimen/margeM"
+            android:layout_marginEnd="@dimen/margeM"
+            android:layout_marginBottom="@dimen/margeM"
+            android:background="@color/black"
+            android:text="Valider"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/texte" />
 
     </RelativeLayout>
 

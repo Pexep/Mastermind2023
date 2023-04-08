@@ -15,9 +15,6 @@
             android:name=".ChoixDuMotDePasse"
             android:exported="false" />
         <activity
-            android:name=".FinDePartieActivity"
-            android:exported="false" />
-        <activity
             android:name=".SettingActivity"
             android:exported="false" />
         <activity

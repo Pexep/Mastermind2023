@@ -2,7 +2,10 @@ package com.example.mastermind;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,6 +32,9 @@ public class MasterMindActivity extends AppCompatActivity {
     
     private ArrayList<ArrayList<Integer>> corrections;
     
+    // 0 pour personne, 1 pour attaquant, 2 pour défenseur
+    private int gagnant;
+    
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +55,8 @@ public class MasterMindActivity extends AppCompatActivity {
             Bundle b = new Bundle();
             
             b.putInt("tour", 0);
+            
+            b.putInt("gagnant", 0);
             
             this.combinaisons = new ArrayList<>();
             combinaisons.add(new ArrayList<>(0));
@@ -90,10 +98,10 @@ public class MasterMindActivity extends AppCompatActivity {
         if (nextable) {
             if (this.tour < 9) {
                 //on affiche la correction
-                boolean gagne = this.afficherCorrection((LinearLayout) this.jeu.getChildAt(this.tour));
+                this.afficherCorrection((LinearLayout) this.jeu.getChildAt(this.tour));
+                
                 //on supprime les listener et sauvegarde la combinaison
                 LinearLayout anciennesPieces = (LinearLayout) this.jeu.getChildAt(this.tour);
-        
                 ArrayList<Integer> combinaison = new ArrayList<>();
                 for (int i = 0; i < anciennesPieces.getChildCount(); i++) {
                     anciennesPieces.getChildAt(i).setOnTouchListener(null);
@@ -101,7 +109,7 @@ public class MasterMindActivity extends AppCompatActivity {
                 }
                 this.combinaisons.add(combinaison);
         
-                if (gagne) {
+                if (this.gagnant == 1) {
                     this.finDePartie(true);
                 } else {
                     //on incremente le tour
@@ -117,21 +125,28 @@ public class MasterMindActivity extends AppCompatActivity {
         
             } else {
                 //on affiche la correction
-                boolean gagne = this.afficherCorrection((LinearLayout) this.jeu.getChildAt(this.tour));
-                //on supprime les listener
-                if (this.tour > 0) {
-                    LinearLayout anciennesPieces = (LinearLayout) this.jeu.getChildAt(this.tour - 1);
-            
-                    for (int i = 0; i < anciennesPieces.getChildCount(); i++) {
-                        anciennesPieces.getChildAt(i).setOnTouchListener(null);
-                    }
+                this.afficherCorrection((LinearLayout) this.jeu.getChildAt(this.tour));
+                
+                //on supprime les listener et sauvegarde la combinaison
+                LinearLayout anciennesPieces = (LinearLayout) this.jeu.getChildAt(this.tour);
+                ArrayList<Integer> combinaison = new ArrayList<>();
+                for (int i = 0; i < anciennesPieces.getChildCount(); i++) {
+                    anciennesPieces.getChildAt(i).setOnTouchListener(null);
+                    combinaison.add(((UnePiece) anciennesPieces.getChildAt(i)).getColor());
                 }
-                this.finDePartie(gagne);
+                this.combinaisons.add(combinaison);
+                
+                if (this.gagnant == 1) {
+                    this.finDePartie(true);
+                } else {
+                    this.gagnant = 2;
+                    this.finDePartie(false);
+                }
             }
         }
     }
 
-    public boolean afficherCorrection(LinearLayout pieces){
+    public void afficherCorrection(LinearLayout pieces){
         int[] colorpiece=new int[4];
         for(int i=0; i<4; i++){
             colorpiece[i]=((UnePiece)pieces.getChildAt(i)).getColor();
@@ -165,20 +180,45 @@ public class MasterMindActivity extends AppCompatActivity {
             }
         }
         this.corrections.add(correction);
-        return gagner;
+        if (gagner){
+            this.gagnant=1;
+        }
     }
 
     public void finDePartie(boolean trouve){
-        Intent fin=new Intent(this, FinDePartieActivity.class);
-        fin.putExtra("trouve", trouve);
-        fin.putExtra("tour", this.tour);
-        fin.putExtra("code", this.code);
-        this.startActivity(fin);
-        this.finish();
+        if (trouve){
+            if (this.tour == 0) {
+                ((TextView) findViewById(R.id.texte_gagnant)).setText("Victoire de l'attaquant en 1 tentative");
+            }else
+                ((TextView) findViewById(R.id.texte_gagnant)).setText("Victoire de l'attaquant en " + (this.tour + 1) + " tentatives");
+        } else {
+            ((TextView)findViewById(R.id.texte_gagnant)).setText("Victoire du défenseur");
+        }
+    
+        ((UnePiece)findViewById(R.id.reponse_code1)).setColor(this.code[0]);
+        ((UnePiece)findViewById(R.id.reponse_code2)).setColor(this.code[1]);
+        ((UnePiece)findViewById(R.id.reponse_code3)).setColor(this.code[2]);
+        ((UnePiece)findViewById(R.id.reponse_code4)).setColor(this.code[3]);
+        
+        findViewById(R.id.cache_reponse).setVisibility(View.INVISIBLE);
+    
+        findViewById(R.id.tour).setVisibility(View.INVISIBLE);
+        findViewById(R.id.tour).setOnTouchListener(null);
+        
+        findViewById(R.id.mastermind).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                Intent intent = new Intent(MasterMindActivity.this, MenuActivity.class);
+                MasterMindActivity.this.startActivity(intent);
+                MasterMindActivity.this.finish();
+                return true;
+            }
+        });
     }
     
     public void init(Bundle state){
         this.tour= state.getInt("tour");
+        this.gagnant= state.getInt("gagnant");
         ArrayList<ArrayList<Integer>> combinaisons = (ArrayList<ArrayList<Integer>>) state.getSerializable("combinaisons");
         ArrayList<ArrayList<Integer>> corrections = (ArrayList<ArrayList<Integer>>) state.getSerializable("corrections");
         
@@ -201,6 +241,11 @@ public class MasterMindActivity extends AppCompatActivity {
         corrections.remove(this.tour);
         this.combinaisons = combinaisons;
         this.corrections = corrections;
+        
+        if (this.gagnant==1){
+            this.finDePartie(true);
+        }else if (this.gagnant==2)
+            this.finDePartie(false);
     }
     
     @Override
@@ -210,6 +255,7 @@ public class MasterMindActivity extends AppCompatActivity {
             outState = new Bundle();
         Bundle b = new Bundle();
         b.putInt("tour", this.tour);
+        b.putInt("gagnant", this.gagnant);
         
         ArrayList<Integer> combinaison = new ArrayList<>();
         LinearLayout anciennesPieces =(LinearLayout) this.jeu.getChildAt(this.tour);

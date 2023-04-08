@@ -6,187 +6,267 @@
     android:layout_height="match_parent"
     android:background="@color/marron"
     android:gravity="center_vertical"
+    android:id="@+id/mastermind"
     >
+
+    <RelativeLayout
+        android:id="@+id/group_reponse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@id/group_jeu"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:id="@+id/texte_gagnant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gagnant"
+            android:layout_marginBottom="15dp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/texte"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            />
+
+            <LinearLayout
+                android:id="@+id/reponse_combinaison"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/texte_gagnant"
+                >
+                <com.example.mastermind.vue.mastermind.UnePiece android:id="@+id/reponse_code1" android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_marginStart="@dimen/margeM" android:layout_marginEnd="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:id="@+id/reponse_code2" android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_marginStart="@dimen/margeM" android:layout_marginEnd="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:id="@+id/reponse_code3" android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_marginStart="@dimen/margeM" android:layout_marginEnd="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:id="@+id/reponse_code4" android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_marginStart="@dimen/margeM" android:layout_marginEnd="@dimen/margeM"/>
+            </LinearLayout>
+
+        <TextView
+            android:id="@+id/cache_reponse"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_corners"
+            android:textColor="@color/white"
+            android:text="Combinaison secrète"
+            android:gravity="center"
+            android:textSize="@dimen/sous_titre"
+
+            />
+    </RelativeLayout>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/correction"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="@dimen/titre"
-        android:layout_marginRight="@dimen/titre"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="120dp"
+        android:layout_marginRight="120dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/tour"
         android:text="Valider"
         />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Grille"
-        android:textSize="@dimen/titre"
-        android:layout_alignParentLeft="true"
-        android:textAlignment="center"
-        android:layout_above="@+id/jeu"
-        />
-
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:id="@+id/jeu"
+        android:id="@+id/group_jeu"
         android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignParentLeft="true"
         android:gravity="left"
         android:orientation="vertical"
-        android:layout_above="@+id/tour">
+        android:layout_above="@+id/tour"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tentatives"
+            android:textSize="@dimen/sous_titre"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:layout_above="@+id/jeu"
+
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:id="@+id/jeu"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+
+            android:orientation="vertical">
 
 
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center">
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-        </LinearLayout>
 
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center">
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-        </LinearLayout>
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center">
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-        </LinearLayout>
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center">
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-        </LinearLayout>
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center">
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-        </LinearLayout>
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center">
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-        </LinearLayout>
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center">
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-        </LinearLayout>
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center">
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-        </LinearLayout>
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center">
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-        </LinearLayout>
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center">
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-            <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
-        </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center">
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+            </LinearLayout>
 
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center">
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center">
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center">
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center">
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center">
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center">
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center">
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center">
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center">
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+                <com.example.mastermind.vue.mastermind.UnePiece android:layout_width="@dimen/pieceM" android:layout_height="@dimen/pieceM" android:layout_margin="@dimen/margeM"/>
+            </LinearLayout>
+
+        </LinearLayout>
     </LinearLayout>
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Correction"
-        android:textSize="@dimen/titre"
-        android:layout_alignParentRight="true"
-        android:layout_toRightOf="@+id/jeu"
-        android:layout_above="@+id/correction"
-        android:textAlignment="center"
-        />
-
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/group_correction"
         android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:layout_alignParentRight="true"
         android:gravity="right"
         android:orientation="vertical"
-        android:id="@+id/correction"
-        android:layout_toRightOf="@+id/jeu"
-        android:layout_above="@+id/tour">
+        android:layout_above="@+id/tour"
+        android:layout_marginEnd="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resultats"
+            android:textSize="@dimen/sous_titre"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:layout_toRightOf="@+id/jeu"
+            android:layout_above="@+id/correction"
+            android:textAlignment="center"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:id="@+id/correction">
 
 
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="@dimen/pieceM" android:gravity="center" android:layout_margin="@dimen/margeM">
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-        </LinearLayout>
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="@dimen/pieceM" android:gravity="center" android:layout_margin="@dimen/margeM">
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-        </LinearLayout>
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="@dimen/pieceM" android:gravity="center" android:layout_margin="@dimen/margeM">
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-        </LinearLayout>
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="@dimen/pieceM" android:gravity="center" android:layout_margin="@dimen/margeM">
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-        </LinearLayout>
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="@dimen/pieceM" android:gravity="center" android:layout_margin="@dimen/margeM">
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-        </LinearLayout>
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="@dimen/pieceM" android:gravity="center" android:layout_margin="@dimen/margeM">
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-        </LinearLayout>
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="@dimen/pieceM" android:gravity="center" android:layout_margin="@dimen/margeM">
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-        </LinearLayout>
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="@dimen/pieceM" android:gravity="center" android:layout_margin="@dimen/margeM">
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-        </LinearLayout>
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="@dimen/pieceM" android:gravity="center" android:layout_margin="@dimen/margeM">
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-        </LinearLayout>
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="@dimen/pieceM" android:gravity="center" android:layout_margin="@dimen/margeM">
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-            <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
-        </LinearLayout>
 
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="@dimen/pieceM" android:gravity="center" android:layout_margin="@dimen/margeM">
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="@dimen/pieceM" android:gravity="center" android:layout_margin="@dimen/margeM">
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="@dimen/pieceM" android:gravity="center" android:layout_margin="@dimen/margeM">
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="@dimen/pieceM" android:gravity="center" android:layout_margin="@dimen/margeM">
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="@dimen/pieceM" android:gravity="center" android:layout_margin="@dimen/margeM">
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="@dimen/pieceM" android:gravity="center" android:layout_margin="@dimen/margeM">
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="@dimen/pieceM" android:gravity="center" android:layout_margin="@dimen/margeM">
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="@dimen/pieceM" android:gravity="center" android:layout_margin="@dimen/margeM">
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="@dimen/pieceM" android:gravity="center" android:layout_margin="@dimen/margeM">
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="@dimen/pieceM" android:gravity="center" android:layout_margin="@dimen/margeM">
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+                <com.example.mastermind.vue.mastermind.PieceCorrection android:layout_width="@dimen/correction" android:layout_height="@dimen/correction" android:layout_margin="@dimen/marge_correction"/>
+            </LinearLayout>
+
+        </LinearLayout>
     </LinearLayout>
-
 </RelativeLayout>
