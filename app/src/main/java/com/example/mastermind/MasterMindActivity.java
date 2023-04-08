@@ -76,43 +76,58 @@ public class MasterMindActivity extends AppCompatActivity {
     }
 
     public void nextTurn(){
-        if(this.tour<9){
-            //on affiche la correction
-            boolean gagne = this.afficherCorrection((LinearLayout) this.jeu.getChildAt(this.tour));
-            //on supprime les listener et sauvegarde la combinaison
+        boolean nextable = true;
+        if (!vide){
             LinearLayout anciennesPieces =(LinearLayout) this.jeu.getChildAt(this.tour);
-            
-            ArrayList<Integer> combinaison = new ArrayList<>();
             for(int i=0; i<anciennesPieces.getChildCount(); i++){
-                anciennesPieces.getChildAt(i).setOnTouchListener(null);
-                combinaison.add(((UnePiece)anciennesPieces.getChildAt(i)).getColor());
-            }
-            this.combinaisons.add(combinaison);
-            
-            if (gagne){
-                this.finDePartie(true);
-            } else {
-                //on incremente le tour
-                this.tour++;
-                //on récupere le LinearLayout des pieces du tour
-                LinearLayout pieces =(LinearLayout) this.jeu.getChildAt(this.tour);
-                //on ajoute le listener
-                for(int i=0; i<pieces.getChildCount(); i++) {
-                    UnePiece p = (UnePiece) pieces.getChildAt(i);
-                    p.setOnTouchListener(new MonOnTouchListener(p, this.vide));
+                if(((UnePiece)anciennesPieces.getChildAt(i)).getColor()==6){
+                    nextable = false;
+                    break;
                 }
             }
-
-        }else{
-            //on affiche la correction
-            boolean gagne = this.afficherCorrection((LinearLayout) this.jeu.getChildAt(this.tour));
-            //on supprime les listener
-            if(this.tour>0){
-                LinearLayout anciennesPieces =(LinearLayout) this.jeu.getChildAt(this.tour-1);
-
-                for(int i=0; i<anciennesPieces.getChildCount(); i++){anciennesPieces.getChildAt(i).setOnTouchListener(null);}
+        }
+        
+        if (nextable) {
+            if (this.tour < 9) {
+                //on affiche la correction
+                boolean gagne = this.afficherCorrection((LinearLayout) this.jeu.getChildAt(this.tour));
+                //on supprime les listener et sauvegarde la combinaison
+                LinearLayout anciennesPieces = (LinearLayout) this.jeu.getChildAt(this.tour);
+        
+                ArrayList<Integer> combinaison = new ArrayList<>();
+                for (int i = 0; i < anciennesPieces.getChildCount(); i++) {
+                    anciennesPieces.getChildAt(i).setOnTouchListener(null);
+                    combinaison.add(((UnePiece) anciennesPieces.getChildAt(i)).getColor());
+                }
+                this.combinaisons.add(combinaison);
+        
+                if (gagne) {
+                    this.finDePartie(true);
+                } else {
+                    //on incremente le tour
+                    this.tour++;
+                    //on récupere le LinearLayout des pieces du tour
+                    LinearLayout pieces = (LinearLayout) this.jeu.getChildAt(this.tour);
+                    //on ajoute le listener
+                    for (int i = 0; i < pieces.getChildCount(); i++) {
+                        UnePiece p = (UnePiece) pieces.getChildAt(i);
+                        p.setOnTouchListener(new MonOnTouchListener(p, this.vide));
+                    }
+                }
+        
+            } else {
+                //on affiche la correction
+                boolean gagne = this.afficherCorrection((LinearLayout) this.jeu.getChildAt(this.tour));
+                //on supprime les listener
+                if (this.tour > 0) {
+                    LinearLayout anciennesPieces = (LinearLayout) this.jeu.getChildAt(this.tour - 1);
+            
+                    for (int i = 0; i < anciennesPieces.getChildCount(); i++) {
+                        anciennesPieces.getChildAt(i).setOnTouchListener(null);
+                    }
+                }
+                this.finDePartie(gagne);
             }
-            this.finDePartie(gagne);
         }
     }
 
