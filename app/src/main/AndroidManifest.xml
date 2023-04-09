@@ -15,7 +15,7 @@
             android:name=".ChoixDuMotDePasse"
             android:exported="false" />
         <activity
-            android:name=".SettingActivity"
+            android:name=".ConfigurationActivity"
             android:exported="false" />
         <activity
             android:name=".MasterMindActivity"

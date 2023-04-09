@@ -53,23 +53,4 @@
         android:textSize="30dp"
         android:text="Deux Joueur"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="pièce vide"
-        android:layout_alignParentBottom="true"
-        android:textSize="30dp"
-        android:layout_toLeftOf="@+id/vide"
-        android:editable="false"
-        android:textColor="@color/white"
-        />
-
-    <CheckBox
-        android:id="@+id/vide"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true" />
-
-
 </RelativeLayout>

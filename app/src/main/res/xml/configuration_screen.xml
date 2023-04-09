@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <PreferenceCategory
+        android:title="Général"
+        android:key="general"
+        >
+        <CheckBoxPreference
+            android:key="pref_piece_vide"
+            android:title="@string/pref_piece_vide_titre"
+            android:summary="@string/pref_piece_vide_texte"
+            android:defaultValue="false"
+            />
+    </PreferenceCategory>
+</PreferenceScreen>
